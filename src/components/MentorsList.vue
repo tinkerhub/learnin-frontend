@@ -7,7 +7,7 @@
     </b-input-group>
     <br>
 
-    <b-card-group deck>
+    <b-card-group columns>
         <b-card
           v-for="mentor in searchResults"
           :title="mentor.name"
@@ -21,6 +21,7 @@
           <b-card-text>
             {{ mentor.description }}
           </b-card-text>
+          <a :href="mentor.link">More info</a>
         </b-card>
     </b-card-group>
 
