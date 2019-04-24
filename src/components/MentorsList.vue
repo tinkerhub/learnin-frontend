@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4>Mentors</h4>
+    <h4>Profiles</h4>
 
     <b-input-group prepend="Search">
       <b-form-input v-model="searchKeyword"></b-form-input>
@@ -106,7 +106,9 @@ export default {
     this.loading = true
     parseSheet('1BVYucZH2rjou2BGhTz62Wib5BBSrMnetcDLSAkLp9mE').then((response) => {
         this.mentors = response.rows.map((item) => {
-            item.image = 'https://www.gravatar.com/avatar/' + md5(item.email) + '?s=250&d=identicon'
+            if(item.image==''){
+              item.image = 'https://www.gravatar.com/avatar/' + md5(item.email) + '?s=250&d=identicon'
+            }
             return item
         })
 
